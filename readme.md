@@ -13,3 +13,18 @@ http://localhost:5240/admin/system/sysRole/findAll
 ##### 二 、测试接口出现 403Forbidden问题
 
 参考：https://blog.csdn.net/weixin_41987908/article/details/103972262?spm=1001.2014.3001.5506
+
+
+##### 三、测试接口出现’createTime cannot be null‘的问题
+参考：https://blog.csdn.net/qq_42768827/article/details/126044475
+在测试添加接口时，测试数据格式：
+```agsl
+{
+      "description": "aaaaaaaaa",
+      "roleCode": "liuyixing",
+      "roleName": "刘一行"
+      "isDeleted": 0
+
+    }
+```
+

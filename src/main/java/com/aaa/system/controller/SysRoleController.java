@@ -62,5 +62,25 @@ public class SysRoleController {
         return Result.ok(pageModel);
     }
 
+    //4.添加
+    //@RequestBody 不能使用get提交方式
+    //传递json格式数据，把json格式数据封装到对象里面 {...}
+    //debug数据参考{
+    //  "description": "aaaaaaaaa",
+    //  "roleCode": "liuyixing",
+    //  "roleName": "刘一行"
+    //  "isDeleted": 0
+    //
+    //}
+    @ApiOperation(value = "添加角色")
+    @PostMapping("save")
+    public Result saveResolve(@RequestBody SysRole sysRole){
+        boolean isSucess = sysRoleService.save(sysRole);
+        if (isSucess){
+            return Result.ok();
+        }else {
+            return Result.fail();
+        }
+    }
 
 }
