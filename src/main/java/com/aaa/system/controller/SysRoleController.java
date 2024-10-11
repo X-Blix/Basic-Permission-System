@@ -83,4 +83,36 @@ public class SysRoleController {
         }
     }
 
+    //5.修改-根据id查询
+    @ApiOperation(value = "根据id查询")
+    @PostMapping("findRoleById/{id}")
+    public Result findRoleById(@PathVariable Long id){
+        SysRole sysRole = sysRoleService.getById(id);
+        return Result.ok(sysRole);
+    }
+
+    //6.修改- 最终修改
+    @ApiOperation(value = "最终修改")
+    @PostMapping("update")
+    public Result updateRole(@RequestBody SysRole sysRole){
+        boolean isSucess = sysRoleService.updateById(sysRole);
+        if (isSucess){
+            return Result.ok();
+        }else {
+            return Result.fail();
+        }
+    }
+
+    //7 批量删除
+    //多个id值[1,2,3]
+    //json数组格式 ——- java的list集合
+    @ApiOperation(value = "批量删除")
+    @PostMapping("batchRemove")
+    public Result batchRemove(@RequestBody List<Long> ids){
+        boolean isSucess = sysRoleService.removeByIds(ids);
+        sysRoleService.removeByIds(ids);
+            return Result.ok();
+
+    }
+
 }
