@@ -1,5 +1,6 @@
 package com.aaa.system.controller;
 
+import com.aaa.system.exception.AAAException;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.aaa.common.result.Result;
@@ -29,6 +30,13 @@ public class SysRoleController {
     @ApiOperation(value = "获取全部角色列表")
     @GetMapping("/findAll")
     public Result<List<SysRole>> findAll(){
+//        //TODO模拟异常效果
+//        try {
+//            int i = 9/0;
+//        }catch (Exception e){
+//            throw new AAAException(999999,"执行了自定义异常处理");
+//        }
+
         List<SysRole> roleList = sysRoleService.list(); //localhost:5240/admin/system/sysRole/findAll
         return Result.ok(roleList);
     }
