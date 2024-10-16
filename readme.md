@@ -28,3 +28,9 @@ http://localhost:5240/admin/system/sysRole/findAll
     }
 ```
 
+##### 四、前后端如果出现 登陆成功但不跳转 “ Verification failed, please Login again.”错误时
+检查前端network里的数据，后端返回的  return Result.ok()里是否把map放进去了
+
+
+#######参考
+https://blog.csdn.net/lbw18/article/details/127517981
